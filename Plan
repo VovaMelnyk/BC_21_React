@@ -1,0 +1,29 @@
+0) install create-react-app
+npm -v
+npm list -g --depth=0
+npm install npm@latest -g
+
+Install Reactjs code snippets
+Instal devTools
+
+1) Що таке React, для чого і коли використовується
+2) MPA vs SPA (+ -)
+3) Virtual DOM
+4) Що таке компоненти і як поділити інтерфейс
+6) Project overview
+7) jsx and React.create element()
+8) Functional components (first render Header)
+9) js code in jsx
+10) one container (div, Fragment, <>)
+10.1) Create size component
+11 )Props, (destr props) PropTypes default props (npm i prop-types)
+11.1) Create cardsContainer component
+11.2 ) Create card header component
+11.3) Create card component
+12) Render collection and key (Create size collection, create cards collection)
+13) Conditional render (shipping el in card,render cart and add class to show|hide)
+
+npx create-react-app my-app (sudo for mac)
+https://create-react-app.dev/docs/getting-started
+https://reactjs.org/
+https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi?hl=ru
