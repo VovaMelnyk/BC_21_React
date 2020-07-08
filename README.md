@@ -4,7 +4,7 @@
 
 #### Example
 
-`git checkout module_01`
+`git checkout lesson_01`
 
 ### Useful links
 
