@@ -1,9 +1,9 @@
 import React from "react";
 import "./CardsCollection.css";
-import products from "../../db/products.json";
 import Card from "../Card/Card";
+import PropTypes from "prop-types";
 
-const CardsCollection = () => {
+const CardsCollection = ({ products, helloFunc }) => {
   return (
     <div className="card-container">
       <div className="card-container__header">
@@ -35,3 +35,20 @@ const CardsCollection = () => {
 };
 
 export default CardsCollection;
+
+CardsCollection.propTypes = {
+  products: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number,
+      title: PropTypes.string,
+      availableSizes: PropTypes.arrayOf(PropTypes.string),
+      style: PropTypes.string,
+      price: PropTypes.number,
+      currencyId: PropTypes.string,
+      currencyFormat: PropTypes.string,
+      isFreeShipping: PropTypes.bool,
+      img: PropTypes.string,
+    })
+  ).isRequired,
+  helloFunc: PropTypes.func,
+};

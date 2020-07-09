@@ -1,17 +1,15 @@
-import React from 'react';
-
+import React from "react";
+import styles from "./SingleFilter.module.css";
 const SingleFilter = ({ value }) => {
-    // console.log(props); // {value: M} {value: S}
-    return (
-        <div className="available-size">
-            <label>
-                <input type="checkbox" value={value} />
-                <span className="checkmark">
-                    {value}
-                </span>
-            </label>
-        </div>
-    );
+  console.log(styles);
+  return (
+    <div className={styles["available-size"]}>
+      <label className={styles.label}>
+        <input type="checkbox" value={value} className={styles.input} />
+        <span className={styles.checkmark}>{value}</span>
+      </label>
+    </div>
+  );
 };
 
 export default SingleFilter;
