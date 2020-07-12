@@ -22,7 +22,6 @@ const Card = ({ shipping, image, title, priceFormat, price, type }) => {
         </CardPriceValue>
       </CardPrice>
       <CardBtn>Add to cart</CardBtn>
-      <CardBtn outlined>Add to cart</CardBtn>
     </CardItem>
   );
 };

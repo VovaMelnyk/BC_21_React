@@ -3,7 +3,6 @@ import sizes from "../../db/sizes.json";
 import styles from "./Filters.module.css";
 import SingleFilter from "../SingleFilter/SingleFilter";
 const Filters = () => {
-  console.log(styles);
   return (
     <div className={styles.filters}>
       <h4 className={styles.title}>Sizes:</h4>

@@ -1,4 +1,15 @@
-1) PropTypes default props (npm i prop-types)
-2) Inline styles
-3) Css modules
-4) Styled components
+0) Class components (stateless vs stateful )
+1) State (render from state + destr)  (create state with constructor and without it) (Counter)
+2) Events (inline bind, bind in constructor, inline callback)
+3) setState (obj, prevState, second param in setState, async await)
+5) method with setState pass like props to other component
+6) cart example (read, create, delete, update)
+
+Add to cart
+delete from cart
+edit count in cart
+fix total sum
+fix total count
+check if item exist
+
+hooks

@@ -8,12 +8,7 @@ const Main = () => {
   return (
     <main>
       <Filters />
-      <CardsCollection
-        products={products}
-        helloFunc={() => {
-          console.log("Hello");
-        }}
-      />
+      <CardsCollection products={products} />
     </main>
   );
 };
