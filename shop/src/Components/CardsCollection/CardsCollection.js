@@ -3,7 +3,7 @@ import "./CardsCollection.css";
 import Card from "../Card/Card";
 import PropTypes from "prop-types";
 
-const CardsCollection = ({ products, helloFunc }) => {
+const CardsCollection = ({ products, addToCart }) => {
   return (
     <div className="card-container">
       <div className="card-container__header">
@@ -28,6 +28,8 @@ const CardsCollection = ({ products, helloFunc }) => {
           price={product.price}
           priceFormat={product.currencyFormat}
           shipping={product.isFreeShipping}
+          id={product.id}
+          addToCart={addToCart}
         />
       ))}
     </div>

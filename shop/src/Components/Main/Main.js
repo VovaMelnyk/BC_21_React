@@ -2,13 +2,12 @@ import React from "react";
 import "./Main.css";
 import Filters from "../Filters/Filters";
 import CardsCollection from "../CardsCollection/CardsCollection";
-import products from "../../db/products.json";
 
-const Main = () => {
+const Main = ({ products, addToCart }) => {
   return (
     <main>
       <Filters />
-      <CardsCollection products={products} />
+      <CardsCollection products={products} addToCart={addToCart} />
     </main>
   );
 };

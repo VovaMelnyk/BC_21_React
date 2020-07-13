@@ -8,7 +8,15 @@ import {
   CardPriceValue,
   CardBtn,
 } from "./Card.styled";
-const Card = ({ shipping, image, title, priceFormat, price, type }) => {
+const Card = ({
+  shipping,
+  image,
+  title,
+  priceFormat,
+  price,
+  id,
+  addToCart,
+}) => {
   return (
     <CardItem>
       {shipping && <div className="card-stopper">Free shipping</div>}
@@ -21,7 +29,7 @@ const Card = ({ shipping, image, title, priceFormat, price, type }) => {
           {priceFormat} {price}
         </CardPriceValue>
       </CardPrice>
-      <CardBtn>Add to cart</CardBtn>
+      <CardBtn onClick={() => addToCart(id)}>Add to cart</CardBtn>
     </CardItem>
   );
 };
