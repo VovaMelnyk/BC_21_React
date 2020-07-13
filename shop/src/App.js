@@ -6,19 +6,6 @@ import Cart from "./Components/Cart/Cart";
 import Counter from "./Components/Counter/Counter";
 import products from "./db/products.json";
 
-// const App = () => {
-// return (
-//   <>
-//     <Header />
-//     <Main />
-//     <Cart />
-//     {/* <Counter /> */}
-//   </>
-// );
-// };
-
-// export default App;
-
 class App extends Component {
   state = {
     isCartOpen: false,
