@@ -1,0 +1,12 @@
+1) Controlled and uncontrolled forms
+2) universal change methods for 
+input, checkbox
+4) Select component
+5) Create todo with form
+6) Hooks variant
+
+
+1) Створити стільки ключів в стейті скільки буде полів форми
+2) Дані зі стейта форми передати в value 
+3) Cтворюємо для кожного інпута ф-ю onChange
+4) Атрибут name - ідентична назва зі стейтом
