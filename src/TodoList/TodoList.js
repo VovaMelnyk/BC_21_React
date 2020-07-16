@@ -57,8 +57,8 @@ class TodoList extends Component {
     return (
       <div className="TodoList">
         <h1 className="TodoList__title">Todo list</h1>
-        <Form addTask={this.addTask} />
-        {/* <HookForm /> */}
+        {/* <Form addTask={this.addTask} /> */}
+        <HookForm addTask={this.addTask} />
         <ul className="TodoList__todos">
           {this.filterTask().map((todo, index) => (
             <li key={todo.id}>
