@@ -15,6 +15,7 @@ class List extends Component {
     currentPage: 1,
     perPage: 10,
     totalItemsCount: 1000,
+    search: "",
   };
 
   async componentDidMount() {
@@ -43,23 +44,6 @@ class List extends Component {
       this.refreshUsers(currentPage, perPage);
     }
   }
-
-  // componentDidMount() {
-  //   const url = withCredentials(`https://api.github.com/search/users?q=react&`);
-  //   request("get", url)
-  //     .then((result) => {
-  //       this.setState({
-  //         users: result.items,
-  //         loader: false,
-  //       });
-  //     })
-  //     .catch(() => {
-  //       this.setState({
-  //         error: true,
-  //         loader: false,
-  //       });
-  //     });
-  // }
 
   refreshUsers = (currentPage, perPage) => {
     const url = withCredentials(
