@@ -1,11 +1,15 @@
 import React from "react";
 import "./ListItem.css";
-const ListItem = ({ avatar_url, login, type }) => {
+const ListItem = ({ avatar_url, login, type, name, owner }) => {
   return (
     <div className="card">
-      <img src={avatar_url} alt={login} className="card__img" />
-      <h2 className="card__title">{login}</h2>
-      <p className="card__text">{type}</p>
+      <img
+        src={avatar_url ? avatar_url : owner.avatar_url}
+        alt={login ? login : name}
+        className="card__img"
+      />
+      <h2 className="card__title">{login ? login : name}</h2>
+      <p className="card__text">{type ? type : owner.login}</p>
     </div>
   );
 };
