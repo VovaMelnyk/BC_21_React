@@ -1,8 +1,15 @@
 import React from "react";
+import { useHistory } from "react-router-dom";
 import "./ListItem.css";
 const ListItem = ({ avatar_url, login, type, name, owner }) => {
+  const history = useHistory();
+
+  const redirectToUserPage = () => {
+    history.push(`/users/${login}`);
+  };
+
   return (
-    <div className="card">
+    <div className="card" onClick={redirectToUserPage}>
       <img
         src={avatar_url ? avatar_url : owner.avatar_url}
         alt={login ? login : name}

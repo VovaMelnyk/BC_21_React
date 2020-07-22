@@ -15,6 +15,10 @@ export const createUserUrl = (search, page, perPage) => {
   );
 };
 
+export const createSingleUserUrl = (login) => {
+  return withCredentials(`https://api.github.com/users/${login}?`);
+};
+
 // export const request = (method, url, body = null) => {
 //   return axios[method](url, body).then((response) => response.data);
 // };
