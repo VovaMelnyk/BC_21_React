@@ -1,7 +1,5 @@
-Dynamic route
 nested route
-history
 render in route
-query in browser url, add param in url
-routing hooks
-useEffect ?
+goBack
+PrivateRoute
+codeSplitting
