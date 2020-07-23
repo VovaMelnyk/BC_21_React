@@ -27,7 +27,7 @@ function App() {
             path="/repos"
             render={(props) => <Repos {...props} title="Github Repos Page" />}
           /> */}
-          <PrivateRoute path="/repos" component={Repos} />
+          <PrivateRoute path="/repos" markup={Repos} title="" />
           <Redirect to="/" />
         </Switch>
       </Suspense>

@@ -1,8 +1,8 @@
 import React from "react";
 import { Route, Redirect } from "react-router-dom";
 
-const PrivateRoute = ({ component, ...rest }) => {
-  const Interface = component;
+const PrivateRoute = ({ markup, ...rest }) => {
+  const Interface = markup;
   const isAuth = true;
   return (
     <Route
