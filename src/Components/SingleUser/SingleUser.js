@@ -1,13 +1,13 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useState } from "react";
-import { useParams, useRouteMatch } from "react-router-dom";
-import "./SingleUser.css";
+import { useParams, useRouteMatch, useHistory } from "react-router-dom";
 import { request, createSingleUserUrl } from "../../helpers/request";
+import "./SingleUser.css";
 
 const SingleUser = () => {
   const [user, setUser] = useState({});
   const userName = useParams().name;
-  console.log(useRouteMatch());
+  const history = useHistory();
 
   useEffect(() => {
     const url = createSingleUserUrl(userName);
@@ -16,8 +16,18 @@ const SingleUser = () => {
       .catch((error) => console.log(error));
   }, []);
 
+  const goBack = () => {
+    history.goBack();
+  };
+
   return (
-    <div>
+    <div className="user-container">
+      <img
+        src="/img/Back_Arrow.png"
+        alt="arrow"
+        className="back"
+        onClick={goBack}
+      />
       <h1>{user.login}</h1>
       <h3>{user.name}</h3>
       <h4>
@@ -35,3 +45,5 @@ const SingleUser = () => {
 };
 
 export default SingleUser;
+
+// ["/user", "/repos/", "/user"];

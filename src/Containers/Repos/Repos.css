@@ -1,0 +1,18 @@
+.sub-menu {
+  display: flex;
+  list-style: none;
+  padding: 20px 0;
+  justify-content: space-evenly;
+  background-color: #4051b5;
+}
+
+.sub-menu__item {
+  color: #fff;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.sub-menu__link {
+  color: #fff;
+  text-decoration: none;
+}
