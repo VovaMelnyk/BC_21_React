@@ -1,5 +1,4 @@
-nested route
-render in route
-goBack
-codeSplitting
-PrivateRoute
+HOC
+Render Props
+Context
+Context with hooks
