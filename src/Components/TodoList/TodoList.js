@@ -37,6 +37,4 @@ const TodoList = ({ saveToStorage }) => {
   );
 };
 
-// export default withStorage(TodoList);
-
-export default TodoList;
+export default withStorage(TodoList);
