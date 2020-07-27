@@ -1,12 +1,17 @@
 import React from "react";
 import Blue from "../Blue/Blue";
+import SimpleContext from "../../context/simpleContext";
 import "./Red.css";
 const Red = () => {
   return (
-    <div className="red">
-      <p>10</p>
-      <Blue />
-    </div>
+    <SimpleContext.Consumer>
+      {(context) => (
+        <div className="red">
+          <p>{context.number}</p>
+          <Blue />
+        </div>
+      )}
+    </SimpleContext.Consumer>
   );
 };
 

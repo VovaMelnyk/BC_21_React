@@ -1,0 +1,98 @@
+.modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 500px;
+  background-color: #ccc;
+  padding: 40px;
+  color: #000;
+  font-size: 40px;
+}
+
+.modal-enter {
+  opacity: 0;
+}
+
+.modal-enter-active {
+  opacity: 1;
+  transition: opacity 500ms ease-out;
+}
+
+.modal-exit {
+  opacity: 1;
+}
+
+.modal-exit-active {
+  opacity: 0;
+  transition: 350ms ease-in-out;
+}
+
+.list {
+  list-style: none;
+  width: 500px;
+  margin: auto;
+}
+
+.item {
+  background-color: #aaa;
+  padding: 20px;
+  color: #000;
+  margin-bottom: 20px;
+}
+
+.item:last-child {
+  margin-bottom: 0;
+}
+
+.list__item-enter-active {
+  animation: task 800ms ease-in alternate-reverse;
+}
+
+.list__item-exit-active {
+  animation-duration: 800ms;
+  animation-name: hinge;
+}
+
+@keyframes task {
+  0% {
+    transform: translateX(0);
+  }
+
+  30% {
+    opacity: 0.7;
+    transform: translateX(30px);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateX(-200px);
+  }
+}
+
+@keyframes hinge {
+  0% {
+    transform-origin: top left;
+    animation-timing-function: ease-in-out;
+  }
+
+  20%,
+  60% {
+    transform: rotate3d(0, 0, 1, 80deg);
+    transform-origin: top left;
+    animation-timing-function: ease-in-out;
+  }
+
+  40%,
+  80% {
+    transform: rotate3d(0, 0, 1, 60deg);
+    transform-origin: top left;
+    animation-timing-function: ease-in-out;
+    opacity: 1;
+  }
+
+  to {
+    transform: translate3d(0, 700px, 0);
+    opacity: 0;
+  }
+}
