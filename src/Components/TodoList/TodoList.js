@@ -1,39 +1,47 @@
 import React, { useState } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { inputHandler, inputClear } from "../../redux/actions/formAction";
 import "./TodoList.css";
-const TodoList = ({ saveToStorage }) => {
-  const [input, setInput] = useState("");
-  const [tasks, setTasks] = useState([]);
+import { addTask, deleteTask, editTask } from "../../redux/actions/taskAction";
+const TodoList = () => {
+  const input = useSelector((state) => state.input);
+  const tasks = useSelector((state) => state.tasks);
+  const dispatch = useDispatch();
 
-  const inputHandler = (e) => {
-    const value = e.target.value;
-    setInput(value);
+  const formDataChange = (e) => {
+    dispatch(inputHandler(e));
   };
 
-  const handleSubmit = (e) => {
+  const onSubmit = (e) => {
     e.preventDefault();
-    const task = {
-      id: Date.now(),
-      text: input,
-    };
-    const newState = [...tasks, task];
-    setTasks(newState);
-    setInput("");
+    const task = { text: input, id: Date.now(), status: false };
+    dispatch(addTask(task));
+    dispatch(inputClear());
   };
 
-  const deleteTask = (id) => {
-    setTasks((state) => state.filter((el) => el.id !== id));
+  const deleteItem = (id) => {
+    dispatch(deleteTask(id));
+  };
+
+  const editItem = (id) => {
+    dispatch(editTask(id));
   };
 
   return (
     <div>
-      <form onSubmit={handleSubmit}>
-        <input type="text" onChange={inputHandler} value={input} />
+      <form onSubmit={onSubmit}>
+        <input type="text" value={input} onChange={formDataChange} />
         <button>Save</button>
       </form>
       <ul className="list">
         {tasks.map((el) => (
-          <li className="item" onClick={() => deleteTask(el.id)} key={el.id}>
+          <li
+            className={el.status ? "item item__complete" : "item"}
+            key={el.id}
+          >
             {el.text}
+            <button onClick={() => deleteItem(el.id)}>Delete</button>
+            <button onClick={() => editItem(el.id)}>Complete</button>
           </li>
         ))}
       </ul>
