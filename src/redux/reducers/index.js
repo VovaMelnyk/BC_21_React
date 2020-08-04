@@ -1,13 +1,9 @@
 import { combineReducers } from "redux";
-import count from "./counterReducer";
 import input from "./formReducer";
-// import tasks from "./taskReducer";
-import tasks from "../slice/todoSlice";
-// import filterType from "./filterTypeReducer";
-import filterType from "../slice/filterTypeSlice";
+import tasks from "./taskReducer";
+import filterType from "./filterTypeReducer";
 
 const rootReducer = combineReducers({
-  counter: count,
   input,
   tasks,
   filterType,

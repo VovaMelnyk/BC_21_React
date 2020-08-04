@@ -1,11 +1,10 @@
 import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { inputHandler, inputClear } from "../../redux/actions/formAction";
+import { addTask, deleteTask, editTask } from "../../redux/actions/taskAction";
+import { changeType } from "../../redux/actions/filterTypeAction";
 import "./TodoList.css";
-// import { addTask, deleteTask, editTask } from "../../redux/actions/taskAction";
-import { addTask, deleteTask, editTask } from "../../redux/slice/todoSlice";
-// import { changeType } from "../../redux/actions/filterTypeAction";
-import { changeType } from "../../redux/slice/filterTypeSlice";
+
 const TodoList = () => {
   const input = useSelector((state) => state.input);
   const tasks = useSelector((state) => state.tasks);
