@@ -1,17 +1,26 @@
-import React, { useState } from "react";
+import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { inputHandler, inputClear } from "../../redux/actions/formAction";
-import { addTask, deleteTask, editTask } from "../../redux/actions/taskAction";
+import { inputHandler } from "../../redux/actions/formAction";
+import { editTask } from "../../redux/actions/taskAction";
 import { changeType } from "../../redux/actions/filterTypeAction";
 import "./TodoList.css";
+import {
+  getTaskOperation,
+  postTaskOperation,
+  deleteTaskOperation,
+} from "../../redux/operations/taskOperations";
 
 const TodoList = () => {
   const input = useSelector((state) => state.input);
   const tasks = useSelector((state) => state.tasks);
   const type = useSelector((state) => state.filterType);
+  const loader = useSelector((state) => state.loader);
   const dispatch = useDispatch();
 
-  console.log(tasks);
+  useEffect(() => {
+    dispatch(getTaskOperation());
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   const filterTasks = () => {
     switch (type) {
@@ -32,13 +41,12 @@ const TodoList = () => {
 
   const onSubmit = (e) => {
     e.preventDefault();
-    const task = { text: input, id: Date.now(), status: false };
-    dispatch(addTask(task));
-    dispatch(inputClear());
+    const task = { text: input, status: false };
+    dispatch(postTaskOperation(task));
   };
 
   const deleteItem = (id) => {
-    dispatch(deleteTask(id));
+    dispatch(deleteTaskOperation(id));
   };
 
   const editItem = (id) => {
@@ -62,20 +70,31 @@ const TodoList = () => {
           Uncompleted
         </button>
       </div>
-      <ul className="list">
-        {filterTasks().map((el) => (
-          <li
-            className={el.status ? "item item__complete" : "item"}
-            key={el.id}
-          >
-            {el.text}
-            <button onClick={() => deleteItem(el.id)}>Delete</button>
-            <button onClick={() => editItem(el.id)}>Complete</button>
-          </li>
-        ))}
-      </ul>
+      {loader ? (
+        <h1>Loading...</h1>
+      ) : (
+        <ul className="list">
+          {filterTasks().map((el) => (
+            <li
+              className={el.status ? "item item__complete" : "item"}
+              key={el.id}
+            >
+              {el.text}
+              <button onClick={() => deleteItem(el.id)}>Delete</button>
+              <button onClick={() => editItem(el.id)}>Complete</button>
+            </li>
+          ))}
+        </ul>
+      )}
     </div>
   );
 };
 
 export default TodoList;
+
+// loader => request => setState => loader
+// loader => request => setState (error) => loader
+
+// asyncAction => loader => request => setState(action) => loader
+
+// operation

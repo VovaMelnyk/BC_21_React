@@ -1,4 +1,9 @@
-import { ADD_ITEM, DELETE_ITEM, EDIT_ITEM } from "../constants/taskConstant";
+import {
+  ADD_ITEM,
+  DELETE_ITEM,
+  EDIT_ITEM,
+  SET_TASKS,
+} from "../constants/taskConstant";
 const initialState = [];
 
 export default (state = initialState, action) => {
@@ -11,6 +16,8 @@ export default (state = initialState, action) => {
       return state.map((el) =>
         el.id !== action.payload ? el : { ...el, status: true }
       );
+    case SET_TASKS:
+      return action.payload;
     default:
       return state;
   }
