@@ -3,22 +3,46 @@ import { useSelector, useDispatch } from "react-redux";
 import { inputHandler } from "../../redux/actions/formAction";
 import { editTask } from "../../redux/actions/taskAction";
 import { changeType } from "../../redux/actions/filterTypeAction";
+import {
+  userNameSelector,
+  userCountrySelector,
+  userZipCodeSelector,
+} from "../../redux/selectors/userSelector";
+import {
+  taskSelector,
+  tasksCountSelector,
+  countUncompletedTaskSelector,
+  countCompletedTaskSelector,
+} from "../../redux/selectors/TodoSelectors";
 import "./TodoList.css";
 import {
   getTaskOperation,
   postTaskOperation,
   deleteTaskOperation,
+  writeDataToFirestore,
+  deleteDataFromFirestore,
+  readDataFromFirestore,
 } from "../../redux/operations/taskOperations";
 
 const TodoList = () => {
   const input = useSelector((state) => state.input);
-  const tasks = useSelector((state) => state.tasks);
+  const tasks = useSelector((state) => taskSelector(state));
   const type = useSelector((state) => state.filterType);
   const loader = useSelector((state) => state.loader);
+  const name = useSelector((state) => userNameSelector(state));
+  const country = useSelector((state) => userCountrySelector(state));
+  const zipCode = useSelector((state) => userZipCodeSelector(state));
+  const tasksTotal = useSelector((state) => tasksCountSelector(state));
+  const uncompletedTaskCount = useSelector((state) =>
+    countUncompletedTaskSelector(state)
+  );
+  const completedTaskCount = useSelector((state) =>
+    countCompletedTaskSelector(state)
+  );
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(getTaskOperation());
+    dispatch(readDataFromFirestore("todoCollection"));
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
@@ -42,11 +66,11 @@ const TodoList = () => {
   const onSubmit = (e) => {
     e.preventDefault();
     const task = { text: input, status: false };
-    dispatch(postTaskOperation(task));
+    dispatch(writeDataToFirestore("todoCollection", task));
   };
 
   const deleteItem = (id) => {
-    dispatch(deleteTaskOperation(id));
+    dispatch(deleteDataFromFirestore("todoCollection", id));
   };
 
   const editItem = (id) => {
@@ -70,6 +94,12 @@ const TodoList = () => {
           Uncompleted
         </button>
       </div>
+      <p>User Name: {name}</p>
+      <p>Country: {country}</p>
+      <p>Zip code: {zipCode}</p>
+      <p>Total task: {tasksTotal}</p>
+      <p>Uncompleted Tasks: {uncompletedTaskCount}</p>
+      <p>Completed Tasks: {completedTaskCount}</p>
       {loader ? (
         <h1>Loading...</h1>
       ) : (

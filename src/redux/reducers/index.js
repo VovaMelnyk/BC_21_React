@@ -4,6 +4,7 @@ import tasks from "./taskReducer";
 import filterType from "./filterTypeReducer";
 import loader from "./loaderReducer";
 import error from "./errorReducer";
+import user from "./userReducer";
 
 const rootReducer = combineReducers({
   input,
@@ -11,6 +12,7 @@ const rootReducer = combineReducers({
   filterType,
   loader,
   error,
+  user,
 });
 
 export default rootReducer;

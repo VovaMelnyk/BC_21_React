@@ -1,9 +1,14 @@
 {
   "tasks": [
     {
-      "text": "Test for delete",
+      "text": "Test type selector",
       "status": false,
-      "id": 4
+      "id": 6
+    },
+    {
+      "text": "Test reselect",
+      "status": false,
+      "id": 7
     }
   ]
 }
