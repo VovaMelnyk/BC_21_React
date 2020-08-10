@@ -1,0 +1,19 @@
+.login-form input {
+  display: block;
+  margin-bottom: 30px;
+  padding: 10px;
+  font-size: 20px;
+}
+
+.login-form {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  max-width: 500px;
+  margin: auto;
+}
+
+.login-form button {
+  padding: 10px;
+  font-size: 20px;
+}

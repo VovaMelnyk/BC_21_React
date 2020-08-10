@@ -1,0 +1,14 @@
+.nav {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 40px;
+  padding: 40px;
+}
+
+.nav__link {
+  color: #000000;
+  text-decoration: none;
+  font-size: 25px;
+  font-weight: 700;
+  margin: 0 40px;
+}
