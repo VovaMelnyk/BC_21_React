@@ -5,6 +5,7 @@ import filterType from "./filterTypeReducer";
 import loader from "./loaderReducer";
 import error from "./errorReducer";
 import user from "./userReducer";
+import token from "./token";
 
 const rootReducer = combineReducers({
   input,
@@ -13,6 +14,7 @@ const rootReducer = combineReducers({
   loader,
   error,
   user,
+  token,
 });
 
 export default rootReducer;

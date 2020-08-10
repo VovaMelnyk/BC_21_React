@@ -1,12 +1,15 @@
 import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 import { navigation } from "../../constants";
+import { useDispatch } from "react-redux";
+import { loginOperation } from "../../redux/operations/auth";
 import "./Login.css";
 
 const initialState = { email: "", password: "" };
 
 const Login = () => {
   const [form, setForm] = useState(initialState);
+  const dispatch = useDispatch();
 
   const inputHandler = ({ target }) => {
     const { name, value } = target;
@@ -15,7 +18,7 @@ const Login = () => {
 
   const submit = (e) => {
     e.preventDefault();
-    console.log(form);
+    dispatch(loginOperation(form));
   };
   return (
     <div>
