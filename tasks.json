@@ -13,3 +13,6 @@
     "avatar": "path to avatar"
   }
 ]
+// module 1 categories
+
+['Food', 'Chefs Specialities', 'Vegetable', 'Meat', 'Recommendations']
