@@ -1,0 +1,15 @@
+// module 1 react
+[
+  {
+    "title": "Sandwitch",
+    "date": "17.06.20",
+    "img": "path to your image",
+    "avatar": "path to avatar"
+  },
+  {
+    "title": "Pizza",
+    "date": "20.06.20",
+    "img": "path to your image",
+    "avatar": "path to avatar"
+  }
+]
